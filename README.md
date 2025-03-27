@@ -7,7 +7,7 @@ This project contains a custom implementation of a tokenizer for natural languag
 
 ## Getting Started
 
-1. Clone the repository:
+1. Clone the repository: 
    ```bash
    git clone <repository-url>
    cd folder
