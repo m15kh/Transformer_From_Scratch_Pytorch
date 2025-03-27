@@ -14,7 +14,7 @@ This project contains a custom implementation of a tokenizer for natural languag
    ```
 
 2. Install dependencies (if any are required).
-
+ 
 3. Modify or extend the `tokenizer.py` file to implement your tokenizer logic.
 
 ## Contributing
