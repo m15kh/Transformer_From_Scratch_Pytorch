@@ -31,8 +31,8 @@ class CustomTokenizerTrainer:
     
     def save(self, path):
         self.tokenizer.save(path)
-        print(f"✅ Tokenizer saved to: {path}")
-        print(f"🔹 Vocab size: {self.tokenizer.get_vocab_size()} tokens")
+        print(f" Tokenizer saved to: {path}")
+        print(f" Vocab size: {self.tokenizer.get_vocab_size()} tokens")
 
 
 if __name__ == "__main__":
@@ -40,9 +40,7 @@ if __name__ == "__main__":
     dataset = load_dataset("roneneldan/TinyStories")
     text_data = dataset["validation"]["text"]
 
-    # 🛠️ Train the tokenizer
     trainer = CustomTokenizerTrainer(vocab_size=10000)
     trainer.train(text_data)
 
-    # 💾 Save the tokenizer
     trainer.save("bpe_tokenizer_medical.json")
