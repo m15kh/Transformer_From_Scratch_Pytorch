@@ -16,7 +16,6 @@ def scaled_dot_product_attention(q, k, v):
     scores = scores.softmax(dim = -1)
     print("------")
     print(scores)
-
     z =  scores @ v
     print('Z dimension:', z.shape)
     return z
