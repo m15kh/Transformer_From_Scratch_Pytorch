@@ -2,6 +2,11 @@ import math
 import torch
 import torch.nn.functional as F
 
+
+#NOTE i don't use this implementation and this is just a preview for you for better knowing archetecture!
+#because the default implementation by pytorch is very optimize on different cuda  and works on flash attenstion
+
+
 def scaled_dot_product_attention(q, k, v):
     print('shape key is:', k.shape)
     #batch size is equal to 64 it means at onece time all 64 sample calculee in parallel apprach!
