@@ -26,6 +26,7 @@ This project provides a complete implementation of the Transformer architecture 
 Below are some visuals illustrating the architecture and components:
 
 ![Transformer Architecture](docs/assets/1.jpg)
+![mutli head attention](docs/assets/1_2.jpg)
 ![multi head attentione](docs/assets/2.jpg)
 ![Positional Encoding](docs/assets/3.jpg)
 ![Training Pipeline](docs/assets/4.jpg)

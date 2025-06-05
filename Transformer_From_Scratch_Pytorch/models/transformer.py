@@ -1,11 +1,3 @@
-import torch.nn as nn
-
-
-class MultiHeadAttension(nn.Module):
-    def __init__(self, config):
-        super().__init__() 
-    def farward(self, x):
-        pass
 
 
 class FeedForward(nn.Module):
