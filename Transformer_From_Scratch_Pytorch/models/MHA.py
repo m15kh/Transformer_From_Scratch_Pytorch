@@ -3,31 +3,35 @@ import torch.nn as nn
 import torch
 from SmartAITool.core import cprint, bprint
 import torch.nn.functional as F
-@dataclass
-class GPTConfing:
-    
-    # embed_dim : int = 512
-    n_embed : int = 100
-    n_heads : int = 5
+import sys
+sys.path.append(".")
+from config import GPTConfig
+
+
+
 
     
 
 
 class MultiHeadAttension(nn.Module):
-    def __init__(self, config = GPTConfing()):
+    def __init__(self, config = GPTConfig()):
         super().__init__() 
         self.n_embed = config.n_embed
         self.n_heads = config.n_heads
         self.head_size = self.n_embed // self.n_heads
         self.qkv_proj = nn.Linear(self.n_embed, 3*self.n_embed) #(128, 100) @ (100, 300) -> (128, 300)
         self.c_proj = nn.Linear(self.n_embed, self.n_embed)
-    def farward(self, x):
+    def forward(self, x):
         print(f"dim x is:{x.shape}")
         B, T, C = x.shape  # B: batch size, T: sequence length, C: embedding dimension
         q, k, v = self.qkv_proj(x).view(B, T,3*self.n_heads, self.head_size).transpose(1,2).chunk(3, dim=-3)
         y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
         y = y.transpose(1,2).contiguous().view(B, T, C)# Reshape to (B, T, C)
         return y
+    
+    
+    
+    
 if __name__ == "__main__":
     mha = MultiHeadAttension()
     simple_x = torch.arange(1, 81+1, dtype=torch.float32).reshape(1, 1, 3, 27)
